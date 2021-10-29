@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, Button, Image, StyleSheet} from 'react-native';
+import {View, Text, TextInput, Button, Image, StyleSheet, SafeAreaView} from 'react-native';
 import firebase from 'firebase';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -21,7 +21,7 @@ function HomePage () {
         return <View><Text>Not found</Text></View>;
     }
     return (
-        <View style={styles.container} >
+        <SafeAreaView style={styles.container} >
             <Text></Text>
             <Text></Text>
             <Image source={logo} style={{width:100, height:50}} />
@@ -69,7 +69,7 @@ function HomePage () {
 
                 </Tab.Navigator>
             </NavigationContainer>
-        </View>
+        </SafeAreaView>
 
     );
 
@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
         paddingTop: '5%',
         backgroundColor: '#ffffff',
         padding: 8,
-        alignItems: 'center'
         },
 });
 

@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
         fontSize: 40,
     },
     button: {
-        underlayColor: "green",
         borderColor: 'green'
     }
 });

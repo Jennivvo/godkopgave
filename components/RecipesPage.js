@@ -3,18 +3,24 @@ import {ScrollView, StyleSheet, Text, View} from "react-native";
 import {RECIPES} from "../const";
 
 const RecipesPage = () => {
+    const arr = [];
+    RECIPES.forEach(item => {
+        arr.push(item.ingrediens.join(" "))
+    })
+
+    console.log(arr)
+
     return(
         <View style={styles.container}>
-            <Text>Opskrifter</Text>
-            <ScrollView style={{height:100}}> {
-                    RECIPES.map((recipes,key) => {
-                        return(
-                            <Text key={key}>
-                                {recipes}
-                            </Text>
-                        )
-                    })
-                }
+            <ScrollView style={{height:100}}>
+                {RECIPES.map((recipe, index) => {
+                    return (
+                        <View key={index}>
+                        <Text >{recipe.name}</Text>
+                        <Text> {arr[index]} </Text>
+                        </View>
+                    )
+                })}
             </ScrollView>
         </View>
     )
