@@ -1,15 +1,12 @@
+//dependencies og packages importeres
 import * as React from "react";
 import {useState, useEffect} from "react";
 import {Button, SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {ITEMS} from "../const";
 import CustomMultiPicker from "react-native-multiple-select-list";
+//den pre-defineret lite med ingredienser hentes
+import {ITEMS} from "../const";
 
-const userList = {
-    "123":"Tom",
-    "124":"Michael",
-    "125":"Christin"
-}
-
+//fridgit-siden vil indeholde et view bestående af text samt en custommultipicker
 const FridgitPage =()=>{
     return (
         <View style={styles.container}>
@@ -18,12 +15,12 @@ const FridgitPage =()=>{
             <TextInput style={styles.searchbar}/>
             <CustomMultiPicker
                 options={ITEMS}
-                search={true} // should show search bar?
-                multiple={true} //
+                search={true}
+                multiple={true}
                 placeholder={"Search"}
                 placeholderTextColor={'#757575'}
-                returnValue={"label"} // label or value
-                callback={(res)=>{ console.log(res) }} // callback, array of selected items
+                returnValue={"label"}
+                callback={(res)=>{ console.log(res) }}
                 rowBackgroundColor={"#eee"}
                 rowHeight={40}
                 rowRadius={5}
@@ -38,9 +35,10 @@ const FridgitPage =()=>{
     );
 }
 
-
+//fridgit-siden eksporteres
 export default FridgitPage;
 
+//stylesheet til siden
 const styles = StyleSheet.create({
     container: {
         flex: 1,

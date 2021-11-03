@@ -1,3 +1,4 @@
+//import af dependencies og packages der skal benyttes. Derudover også sider og billeder
 import React from 'react';
 import {View, Text, TextInput, Button, Image, StyleSheet, SafeAreaView} from 'react-native';
 import firebase from 'firebase';
@@ -9,13 +10,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import logo from "../assets/logo.png";
 import FridgitPage from "../components/FridgitPage";
 
+//Variabler med tekst til siderne defineres samt vores tab variable der benyttes til at oprette en bottomtabnavigator
 const fridgitPageText = "This is FridgetPage!";
 const settingsPageText = "This is SettingPage!";
 const recipesPageText = "This is RecipePage!"
-
 const Tab = createBottomTabNavigator();
 
-
+//Alt der vil fremgå på homepage vil være i denne funktion. Den indeholder et if-statement, som siger, at hvis der ikke
+//kan autentificeres en bruger vil den returnere "not found", men såfremt den finder en bruger, vil den returnere et
+//safeAreaView med billeder samt en bottomtabnavigator med tre komponenter.
 function HomePage () {
     if (!firebase.auth().currentUser) {
         return <View><Text>Not found</Text></View>;
@@ -62,7 +65,9 @@ function HomePage () {
                                    activeTintColor: 'blue',
                                    inactiveTintColor: 'gray',
                                }}
-                >
+
+                    //de tre tabs oprettes her med navne og integregering af de forskellige komponenter
+                    >
                     <Tab.Screen name="FRIDGIT" children={()=> <FridgitPage prop={fridgitPageText}/>} />
                     <Tab.Screen name="Recipes" children={()=> <RecipesPage prop={recipesPageText}/>} />
                     <Tab.Screen name="Settings" children={()=> <SettingsPage prop={settingsPageText}/>} />
@@ -75,6 +80,7 @@ function HomePage () {
 
 }
 
+//stylesheet til homepage
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -85,4 +91,5 @@ const styles = StyleSheet.create({
         },
 });
 
+//homepage eksporteres
 export default HomePage

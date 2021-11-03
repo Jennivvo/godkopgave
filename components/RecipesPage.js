@@ -1,7 +1,10 @@
+//dependencies og packages importeres
 import React from "react";
 import {ScrollView, StyleSheet, Text, View} from "react-native";
 import {RECIPES} from "../const";
 
+//opskrift-siden består af en funktion som først kombinerer alle ingredienser til en string, vha en for each, hvorefter
+//den vil returnere et view bestående af et scrollview, hvor opskrifterne hentes
 const RecipesPage = () => {
     const arr = [];
     RECIPES.forEach(item => {
@@ -26,6 +29,7 @@ const RecipesPage = () => {
     )
 }
 
+//stylesheet til opskrift-siden
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
